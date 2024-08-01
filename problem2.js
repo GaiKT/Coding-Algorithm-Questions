@@ -22,13 +22,23 @@
 function protectCheckenWithRoof(n , k , position) {
 
     let numberOfChecken = 0
+
+    //check input follow rule
+    if( n >= 1 && n <= 1000000 || k >= 1 && k <= 1000000  ){
+        return "input not match"
+    }
     
     for(let end = 0 ; end < n ; end++){
         let start = 0
         let newNumberOfChecken = 0
 
         // Adjust the start pointer until the window is within the roof length
-        while(position[end] - position[start] >= k){
+        while(position[end] - position[start] >= k) {
+            
+            //check input in loop
+            if( position[start] > 1000000000 && position[start] < 1 ) {
+                return "input not match"
+            }
             start ++
         }
 
