@@ -19,38 +19,38 @@
 // - It's not required to cover all chickens, but to maximize the number of chickens protected.
 // - It’s guaranteed that the given positions of the chickens will be sorted from lowest to highest.
 
-function protectCheckenWithRoof(n , k , position) {
-
-    let numberOfChecken = 0
-
-    //check input follow rule
-    if( n >= 1 && n <= 1000000 || k >= 1 && k <= 1000000  ){
-        return "input not match"
+function protectChickensWithRoof(n, k, positions) {
+    // Validate input
+    if (n < 1 || n > 1000000 || k < 1 || k > 1000000) {
+        return "input not match";
     }
-    
-    for(let end = 0 ; end < n ; end++){
-        let start = 0
-        let newNumberOfChecken = 0
 
-        // Adjust the start pointer until the window is within the roof length
-        while(position[end] - position[start] >= k) {
-            
-            //check input in loop
-            if( position[start] > 1000000000 && position[start] < 1 ) {
-                return "input not match"
-            }
-            start ++
-        }
-
-        newNumberOfChecken = end - start + 1
-
-        // Update the maximum number of chickens that can be protected
-        if(numberOfChecken < newNumberOfChecken){
-            numberOfChecken = newNumberOfChecken 
+    // Validate positions array
+    for (let position of positions) {
+        if (position < 1 || position > 1000000000) {
+            return "input not match";
         }
     }
 
-    return numberOfChecken
+    let maxChickens = 0;
+    let start = 0;
+
+    for (let end = 0; end < n; end++) {
+        // Move start pointer to maintain the window size within the roof length k
+        while (positions[end] - positions[start] >= k) {
+            start++;
+        }
+
+        // Calculate the number of chickens in the current window
+        let currentChickens = end - start + 1;
+
+        // Update the maximum number of chickens if the current window has more
+        if (currentChickens > maxChickens) {
+            maxChickens = currentChickens;
+        }
+    }
+
+    return maxChickens;
 }
 
 // Test cases
