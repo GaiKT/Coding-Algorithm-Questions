@@ -54,10 +54,10 @@ function protectChickensWithRoof(n, k, positions) {
 }
 
 // Test cases
-let result1 = protectCheckenWithRoof( 5 , 5 , [2,5,10,12,15]);
-let result2 = protectCheckenWithRoof( 6 , 10 , [1,10,30,34,35,37]);
-let result3 = protectCheckenWithRoof( 8 , 20 , [1,10,30,34,39,40,44,56,48,59,60,66,69]);
-let result4 = protectCheckenWithRoof( 7 , 5 , [1,2,3,4,10,18,20]);
+let result1 = protectChickensWithRoof( 5 , 5 , [2,5,10,12,15]);
+let result2 = protectChickensWithRoof( 6 , 10 , [1,10,30,34,35,37]);
+let result3 = protectChickensWithRoof( 8 , 20 , [1,10,30,34,39,40,44,56,48,59,60,66,69]);
+let result4 = protectChickensWithRoof( 7 , 5 , [1,2,3,4,10,18,20]);
 
 console.log(result2) //4
 console.log(result1) //2
